@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBTOON Tracer - Version Complète</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, #ff6b9d 0%, #4ecdc4 100%); min-height: 100vh; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; margin-bottom: 40px; background: rgba(255, 255, 255, 0.9); padding: 30px; border-radius: 15px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); }
+        h1 { color: #2c3e50; font-size: 2.5em; margin-bottom: 10px; }
+        .auth-section { background: rgba(255, 255, 255, 0.95); padding: 30px; border-radius: 15px; margin-bottom: 30px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; color: #2c3e50; font-weight: 600; }
+        input[type="email"], input[type="password"] { width: 100%; padding: 12px 15px; border: 2px solid #e1e8ed; border-radius: 8px; font-size: 16px; }
+        .btn { background: linear-gradient(135deg, #ff6b9d 0%, #4ecdc4 100%); color: white; padding: 12px 25px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; margin: 5px; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌟 WEBTOON Tracer</h1>
+            <p>Suivez vos lectures de webtoons préférés</p>
+        </header>
+        
+        <div id="authSection" class="auth-section">
+            <h2>Connexion</h2>
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" value="erisaudrey@gmail.com">
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" value="password123">
+            </div>
+            <button class="btn" onclick="login()">Se connecter</button>
+        </div>
+        
+        <div id="mainApp" class="hidden">
+            <h2>Bienvenue dans WEBTOON Tracer !</h2>
+            <p>Application déployée avec succès sur GitHub Pages.</p>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (email === 'erisaudrey@gmail.com' && password === 'password123') {
+                document.getElementById('authSection').classList.add('hidden');
+                document.getElementById('mainApp').classList.remove('hidden');
+                alert('Connexion réussie ! Application déployée avec succès.');
+            } else {
+                alert('Email ou mot de passe incorrect');
+            }
+        }
+    </script>
+</body>
+</html>
