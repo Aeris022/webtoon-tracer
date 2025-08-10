@@ -1,0 +1,1333 @@
+/* WEBTOON Tracer - Styles CSS reproduisant exactement l'application React */
+
+/* Variables CSS exactes de l'application React */
+:root {
+  /* Couleurs principales exactes */
+  --primary: hsl(350, 100%, 69%); /* #ff6b9d */
+  --secondary: hsl(174, 100%, 65%); /* #4ecdc4 */
+  --accent: hsl(24, 100%, 65%); /* #ff8c42 */
+  
+  /* Couleurs système */
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  
+  /* Couleurs grises */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  
+  /* Couleurs d'état */
+  --success: #10b981;
+  --error: #ef4444;
+  --warning: #f59e0b;
+  
+  /* Gradients exacts */
+  --gradient-start: hsl(350, 100%, 69%);
+  --gradient-end: hsl(174, 100%, 65%);
+}
+
+/* Reset global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Classes utilitaires */
+.hidden {
+  display: none !important;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.blob-decoration {
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+/* Icônes communes */
+.icon {
+  color: currentColor;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* PAGE DE CONNEXION - Reproduction exacte */
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.background-decorations {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.blob-1 {
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  width: 5rem;
+  height: 5rem;
+  opacity: 0.2;
+}
+
+.blob-2 {
+  position: absolute;
+  bottom: 5rem;
+  left: 2.5rem;
+  width: 4rem;
+  height: 4rem;
+  opacity: 0.15;
+}
+
+.blob-3 {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  width: 3rem;
+  height: 3rem;
+  opacity: 0.1;
+}
+
+.login-container {
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+  width: 100%;
+  max-width: 28rem;
+  position: relative;
+  z-index: 10;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo-container {
+  width: 6rem;
+  height: 5rem;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-icon {
+  color: white;
+  width: 2rem;
+  height: 2rem;
+}
+
+.login-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.login-subtitle {
+  color: var(--gray-600);
+  font-size: 0.875rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--gray-100);
+  border: 0;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: var(--primary);
+  background: white;
+}
+
+.checkbox-group {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.checkbox {
+  width: auto;
+  height: 1rem;
+  accent-color: var(--primary);
+}
+
+.checkbox-label {
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  cursor: pointer;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 0.875rem;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 107, 157, 0.3);
+}
+
+.login-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+.link {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--secondary);
+}
+
+/* DASHBOARD - Reproduction exacte */
+.dashboard {
+  min-height: 100vh;
+  background: var(--gray-50);
+  padding-bottom: 5rem; /* Pour la navigation mobile */
+}
+
+/* Header exact */
+.header {
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  color: white;
+  padding: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.header-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Boutons exactes de l'application React */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 107, 157, 0.3);
+}
+
+.btn-secondary {
+  background: var(--gray-100);
+  color: var(--gray-700);
+  border: 1px solid var(--gray-200);
+}
+
+.btn-secondary:hover {
+  background: var(--gray-200);
+}
+
+.btn-admin {
+  background: rgba(239, 68, 68, 0.9);
+  color: white;
+}
+
+.btn-admin:hover {
+  background: #ef4444;
+}
+
+.btn-danger {
+  background: #ef4444;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #dc2626;
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Section de recherche exacte */
+.search-section {
+  background: white;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.search-container {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  background: var(--gray-100);
+  border: 0;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: var(--primary);
+  background: white;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-400);
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.search-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+.search-counter {
+  font-weight: 500;
+}
+
+.clear-search-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.clear-search-btn:hover {
+  background: rgba(255, 107, 157, 0.1);
+}
+
+/* Navigation desktop (masquée sur mobile) */
+.desktop-nav {
+  background: white;
+  border-bottom: 1px solid var(--gray-200);
+  padding: 0 1rem;
+}
+
+.nav-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  overflow-x: auto;
+}
+
+.nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--gray-600);
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.nav-tab:hover {
+  color: var(--primary);
+  background: rgba(255, 107, 157, 0.05);
+}
+
+.nav-tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+/* Contenu principal */
+.main-content {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.tab-content {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* En-têtes de pages exactes */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.back-btn {
+  background: white;
+  border: 2px solid var(--gray-200);
+  color: var(--gray-700);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(255, 107, 157, 0.05);
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.home-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.home-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Grille de webtoons exacte */
+.webtoons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Cartes webtoon exactes */
+.webtoon-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.webtoon-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+.webtoon-image {
+  width: 100%;
+  height: 12rem;
+  background: linear-gradient(135deg, rgba(255, 107, 157, 0.2) 0%, rgba(78, 205, 196, 0.2) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.webtoon-info {
+  padding: 1rem;
+}
+
+.webtoon-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.webtoon-author {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin-bottom: 0.75rem;
+}
+
+.webtoon-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.webtoon-genre {
+  font-size: 0.75rem;
+  background: var(--gray-100);
+  color: var(--gray-700);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+}
+
+.favorite-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+  color: var(--gray-400);
+}
+
+.favorite-btn:hover {
+  background: rgba(255, 107, 157, 0.1);
+  transform: scale(1.1);
+}
+
+.favorite-btn.active {
+  color: #fbbf24;
+  filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.5));
+}
+
+/* Profil exact */
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.profile-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.profile-avatar {
+  width: 6rem;
+  height: 6rem;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.875rem;
+  color: white;
+  font-weight: bold;
+}
+
+.profile-name {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+}
+
+.profile-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.field-input {
+  padding: 0.75rem;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  border-radius: 0.375rem;
+  font-size: 1rem;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.stats-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.stats-card h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.875rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+/* Admin exact */
+.admin-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--gray-700);
+  transition: all 0.2s ease;
+}
+
+.admin-tab-btn:hover {
+  background: var(--gray-200);
+}
+
+.admin-tab-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.admin-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.admin-stats-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.admin-stats-card h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 1rem;
+}
+
+/* Animation rotation pour sync */
+.rotating {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Navigation mobile exacte */
+.bottom-navigation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid var(--gray-200);
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  z-index: 50;
+}
+
+.bottom-nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--gray-500);
+  transition: all 0.2s ease;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.bottom-nav-item:hover,
+.bottom-nav-item.active {
+  color: var(--primary);
+  background: rgba(255, 107, 157, 0.05);
+}
+
+/* Modals exactes */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--gray-400);
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  color: var(--gray-600);
+  background: var(--gray-100);
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+/* Détail webtoon modal exact */
+.webtoon-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.webtoon-detail-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.webtoon-image-large {
+  width: 100%;
+  height: 16rem;
+  background: linear-gradient(135deg, rgba(255, 107, 157, 0.2) 0%, rgba(78, 205, 196, 0.2) 100%);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+}
+
+.webtoon-info-section {
+  flex: 1;
+}
+
+.webtoon-info-section h3 {
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 0.5rem;
+}
+
+.webtoon-info-section p {
+  color: var(--gray-600);
+  margin-bottom: 1rem;
+}
+
+/* Système de progression des chapitres exact */
+.chapters-section {
+  margin-bottom: 1.5rem;
+}
+
+.chapters-section h4 {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--gray-900);
+}
+
+.chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  max-height: 10rem;
+  overflow-y: auto;
+  padding: 0.5rem;
+  border: 1px solid var(--gray-200);
+  border-radius: 0.5rem;
+  background: var(--gray-50);
+}
+
+.chapter-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--gray-300);
+  background: white;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chapter-btn:hover {
+  border-color: var(--primary);
+  background: rgba(255, 107, 157, 0.05);
+}
+
+.chapter-btn.read {
+  background: var(--success);
+  border-color: var(--success);
+  color: white;
+}
+
+.chapter-btn.read:hover {
+  background: #059669;
+  border-color: #059669;
+}
+
+/* Message d'avertissement pour chapitres manquants */
+.chapters-warning {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #fef3c7;
+  border: 1px solid #fcd34d;
+  border-radius: 0.5rem;
+}
+
+.chapters-warning strong {
+  color: #92400e;
+}
+
+.chapters-warning p {
+  color: #92400e;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Section notes exacte */
+.notes-section h4 {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--gray-900);
+}
+
+.notes-textarea {
+  width: 100%;
+  height: 6rem;
+  padding: 0.75rem;
+  border: 1px solid var(--gray-200);
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-family: inherit;
+  resize: none;
+  transition: all 0.2s ease;
+}
+
+.notes-textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  ring: 2px;
+  ring-color: rgba(255, 107, 157, 0.1);
+}
+
+.save-notes-btn {
+  margin-top: 0.5rem;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.save-notes-btn:hover {
+  box-shadow: 0 4px 6px rgba(255, 107, 157, 0.3);
+}
+
+/* Formulaire d'ajout exact */
+.add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+/* Gestion des utilisateurs */
+.users-list h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 1rem;
+}
+
+.users-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.user-item {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-info h5 {
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 0.25rem;
+}
+
+.user-info p {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin: 0;
+}
+
+.user-badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+
+.badge-admin {
+  background: #fecaca;
+  color: #dc2626;
+}
+
+.badge-moderator {
+  background: #ddd6fe;
+  color: #7c3aed;
+}
+
+.moderator-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Toast notifications exactes */
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.toast {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  min-width: 300px;
+  animation: slideIn 0.3s ease;
+}
+
+.toast.success {
+  border-left: 4px solid var(--success);
+}
+
+.toast.error {
+  border-left: 4px solid var(--error);
+}
+
+.toast.removing {
+  animation: slideOut 0.3s ease;
+}
+
+.toast-title {
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 0.25rem;
+}
+
+.toast-description {
+  color: var(--gray-600);
+  font-size: 0.875rem;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Messages d'état vide */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.empty-state-icon {
+  font-size: 4rem;
+  color: var(--gray-300);
+  margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  color: var(--gray-500);
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive design exact */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  
+  .webtoons-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  .header-title {
+    font-size: 1.25rem;
+  }
+  
+  .modal-content {
+    margin: 0.5rem;
+    max-width: none;
+  }
+  
+  .chapters-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .chapter-btn {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.75rem;
+  }
+  
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .admin-actions {
+    flex-direction: column;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .page-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .webtoon-detail-layout {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .webtoons-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  
+  .login-container {
+    padding: 1.5rem;
+  }
+  
+  .search-info {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  
+  .chapters-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Masquer la navigation desktop sur mobile */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+}
+
+/* Masquer la navigation mobile sur desktop */
+@media (min-width: 769px) {
+  .bottom-navigation {
+    display: none;
+  }
+  
+  .dashboard {
+    padding-bottom: 0;
+  }
+}
+
+/* Classes d'aide pour l'affichage conditionnel admin */
+.admin-only {
+  display: none;
+}
+
+.admin-only.visible {
+  display: flex;
+}
